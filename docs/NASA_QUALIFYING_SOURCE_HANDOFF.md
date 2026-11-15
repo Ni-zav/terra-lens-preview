@@ -22,6 +22,15 @@ The CSV declares fill `1000000000000000`; NetCDF declares `_FillValue` and `miss
 
 NASA's [reprocessing record](https://docserver.gesdisc.eosdis.nasa.gov/public/project/MERRA/Records_MERRA-2_Data_Reprocessing_and_Service_Changes.pdf) says September 2020 and June–September 2021 were reprocessed across all MERRA-2 collections; the 2021 correction addressed a near-surface warm bias. The preserved aggregate's NetCDF names Giovanni intermediate files but does not identify native input-granule filenames or version prefixes, so we cannot verify which versions contributed. As a **sensitivity check, not a correction or proof of input version**, independently refitting after excluding both affected calendar years gives +0.186620 K/decade over 22 years (classical p=0.016118); the published 24-year analysis remains the primary result. NASA's [GMAO FAQ](https://gmao.gsfc.nasa.gov/gmao-products/merra-2/faq_merra-2/) describes monthly quality checking before release; that general process does not replace a granule-level audit of this export.
 
+## Independent six-cell aggregation evidence
+
+The original Giovanni session also produced two intermediate NetCDF files containing the six grid-cell values and latitude weights used for the regional average. They were retrieved through Earthdata by the project owner and are preserved byte-for-byte in `data/source-snapshots/`:
+
+- `giovanni-m2tmnxslv-t2m-first-weighted.nc` (January 2001–August 2017), SHA-256 `bbc7cb7fd75fd4856e6671380fdeffc76ea3c02f21b3011f36e2f1bba65c5766`.
+- `giovanni-m2tmnxslv-t2m-second-weighted.nc` (September 2017–December 2024), SHA-256 `fdf05b71256eca606080f61077c9e2f54af298a2c05a69fb3cc055aa4fe276ee`.
+
+`scripts/verify-giovanni-grid.py` independently recomputes all 288 area means from the 3 × 2 cell values and latitude weights, checks timestamps and hashes, and independently fits the trend from those recalculated means. The largest difference from Giovanni's original area-average NetCDF is 0.000015188 K; the grid-derived OLS slope is +0.177171416 K/decade (classical 95% interval +0.042312908 to +0.312029923, p=0.012376069). Differences from the original aggregate-based fit are at floating-point precision. This establishes reproducibility of the spatial calculation, not source accuracy or native input-granule version. Neither intermediate contains quality flags or native granule identifiers.
+
 ## Analysis and independent verification
 
 Question: How did modeled regional 2 m air temperature change over 2001–2024? All 288 months are present. We calculate each annual mean from the 12 monthly means weighted by Gregorian month lengths, excluding incomplete years, then fit OLS to actual calendar years. The 24-year fit is **+0.177171 K/decade**, classical two-sided **p = 0.012376**, 95% classical slope interval **[+0.042313, +0.312030] K/decade**. Temperature differences in K equal differences in °C. This is an exploratory historical model estimate. The standard interval assumes independent homoscedastic residuals; serial correlation, selection, multiple testing, model and processing uncertainty can make it optimistic. It does not establish causation, forecast future warming, or test differences against POWER.
@@ -39,6 +48,7 @@ node scripts/verify-giovanni-area.mjs > /tmp/terra-lens-giovanni-js.json
 python3 -m venv /tmp/terra-lens-nasa-science
 /tmp/terra-lens-nasa-science/bin/pip install scipy netCDF4
 /tmp/terra-lens-nasa-science/bin/python scripts/verify-giovanni-area.py
+/tmp/terra-lens-nasa-science/bin/python scripts/verify-giovanni-grid.py
 ```
 
 The Python verifier runs the JS calculation itself and fails on source hash, missing or masked data, numerical or metadata mismatches. Local test: 70 Node tests passed and SciPy/NetCDF verification passed on 15 November 2026. CI workflow `.github/workflows/giovanni-area.yml` repeats the focused checks; consult the PR checks for the current head rather than assuming a pending run passed.
