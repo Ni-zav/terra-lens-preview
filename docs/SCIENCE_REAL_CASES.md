@@ -32,13 +32,16 @@
 
 The existing `main` app has independently verified Yogyakarta and Jakarta point models (2001–2024) and an aligned-complete-year paired HAC calculation: **Jakarta − Yogyakarta +0.044694 °C/decade**, approximate 95% interval **−0.057416 to +0.146803** and p≈0.374. This does **not** establish that the fitted rates differ. [Source verification in main](CASE_STUDY.md).
 
+## Case D — Challenge-listed NASA Giovanni regional MERRA-2 temperature (`M2TMNXSLV.5.12.4` `T2M`)
+
+The Giovanni workspace integrates an authentic, unmodified NASA Giovanni v4.40 area-averaged monthly `T2M` export (`110°E–111°E, 8°S–7°S`, `2001–2024`, DOI `10.5067/AP1B0BA5PD2K`), yielding **+0.177171 K/decade** (`95% CI [+0.042313, +0.312030] K/decade`, `p = 0.012376`), plus two preserved 6-cell weighted intermediate NetCDFs and byte-preserved NASA OPeNDAP `MERRA2_401` `.dap.nc4` subsets for the five reprocessed months (`2020-09`, `2021-06..2021-09`). See [NASA_QUALIFYING_SOURCE_HANDOFF.md](NASA_QUALIFYING_SOURCE_HANDOFF.md).
+
 ## What we deliberately have NOT implemented
 
-- Giovanni authenticated API ingestion or an authentic downloaded Giovanni dataset; only the earlier local CSV importer exists.
+- Automated browser Earthdata OAuth token acquisition for arbitrary live Giovanni jobs (users can launch custom regional queries on NASA Giovanni and import the downloaded CSV locally, or inspect the integrated authenticated regional export).
 - NASA GPM IMERG, GLDAS modeled soil water, MODIS NDVI/LST/AppEEARS QA masks, FIRMS thermal-anomaly record joining. They are **cataloged as planned**.
 - Spatially matched NASA SWOT river reach and POWER catchment-aggregated precipitation; actual workflow uses only nearby model point.
 - Real operational flood prediction, irrigation advice, heat-health risk, fire causality or human impact claims.
-- Global Award Resources-tab eligibility proof; official tab returned errors from automated retrieval. See [resource eligibility assessment](NASA_RESOURCES_PROVENANCE.md).
 
 ## Why the cross-source approach matters
 

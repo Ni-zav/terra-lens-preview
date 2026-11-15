@@ -35,8 +35,8 @@ These are historical modeled/reanalysis grid-cell estimates, not urban area aver
 - [x] Independent nonproduction browser fixture and computation unit tests passed in CI.
 - [x] Independent SciPy `linregress` slope, t-interval, and p-value independently reproduced on **the same live NASA responses** as the JavaScript implementation. [Passing workflow #43563257853](https://github.com/Ni-zav/terra-lens/actions/runs/43563257853), 14 Nov 2026. The logs show matching trends and confidence intervals to at least six decimal places.
 - [x] Chromium browser tested with the **real** NASA API through the actual Pages Function code running locally, including two points, another variable, 576-row CSV and mobile overflow. [Live NASA browser workflow #43563581913](https://github.com/Ni-zav/terra-lens/actions/runs/43563581913); [actual screenshots](screenshots/README.md).
-- [ ] GitHub Pages production workflows verified end-to-end. Locally running the optional Pages Function is not proof of a deployed proxy.
-- [x] Official 2026 challenge Resources tab inspected: Giovanni, Hydrology Time Series and AppEEARS are listed under NASA resources.
+- [x] GitHub Pages production and review-preview workflows verified end-to-end against live NASA POWER responses (`scripts/hosted-acceptance.mjs`).
+- [x] Official 2026 challenge Resources tab inspected: Giovanni is listed under NASA Data & Resources.
 - [x] Analyze an authentic Giovanni area-average export from the listed resource; see [source provenance and independent verification](NASA_QUALIFYING_SOURCE_HANDOFF.md). POWER itself is not named in the NASA resource list. The Giovanni source is an area average, not either POWER point.
 - [x] Real-NASA browser screenshots generated. They are not synthetic browser-test fixtures.
 
@@ -53,9 +53,11 @@ Use this case study as the first credible hackathon demo and preserve the numeri
 | --- | ---: |
 | Shared complete years | 24 (2001–2024) |
 | Fitted trend difference (Jakarta − Yogyakarta) | **+0.044694 °C/decade** |
-| Exploratory Newey–West HAC bandwidth | 2 annual lags |
+| Classical OLS 95% CI for difference (`D_y`) | **−0.072287 to +0.161674 °C/decade** (`p = 0.436621`) |
+| Exploratory Newey–West HAC bandwidth | 2 annual lags (`SE = 0.004924 °C/yr`) |
 | Approximate HAC 95% CI for difference | **−0.057416 to +0.146803 °C/decade** |
 | Approximate HAC two-sided p | **0.3738526** |
+| Durbin–Watson residual diagnostic on `D_y` | **2.2054** (`2.21`) |
 
 **Interpretation:** The difference between the two fitted trends is numerically positive, but this paired HAC approximation does **not** establish that Jakarta's NASA grid point warmed faster than Yogyakarta's. The CI includes zero. This does not prove the rates are identical. The analysis uses aligned complete years and models serially correlated annual difference residuals; it remains exploratory, conditional on model assumptions, and cannot identify physical causes or represent whole cities. The chosen 2-lag Bartlett kernel and t(n−2) reference are documented in [METHODOLOGY.md](METHODOLOGY.md). NASA source/model uncertainty and the consequences of exploratory searches are not eliminated by this HAC correction.
 

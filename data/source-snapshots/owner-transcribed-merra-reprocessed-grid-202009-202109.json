@@ -1,0 +1,100 @@
+{
+  "provenance": "Owner-transcribed values from NASA OPeNDAP pages on 2026-11-15; these are not byte-preserved NASA responses. Values shown to three decimal places.",
+  "product": "M2TMNXSLV 5.12.4 T2M",
+  "latitudes": [
+    -8,
+    -7.5,
+    -7
+  ],
+  "longitudes": [
+    110,
+    110.625
+  ],
+  "months": {
+    "2020-09": {
+      "granule": "MERRA2_401.tavgM_2d_slv_Nx.202009.nc4",
+      "values_K": [
+        [
+          299.03,
+          299.107
+        ],
+        [
+          296.175,
+          298.81
+        ],
+        [
+          299.769,
+          301.146
+        ]
+      ]
+    },
+    "2021-06": {
+      "granule": "MERRA2_401.tavgM_2d_slv_Nx.202106.nc4",
+      "values_K": [
+        [
+          300.169,
+          299.287
+        ],
+        [
+          296.36,
+          297.803
+        ],
+        [
+          298.904,
+          299.41
+        ]
+      ]
+    },
+    "2021-07": {
+      "granule": "MERRA2_401.tavgM_2d_slv_Nx.202107.nc4",
+      "values_K": [
+        [
+          299.403,
+          298.465
+        ],
+        [
+          295.441,
+          297.058
+        ],
+        [
+          298.584,
+          299.083
+        ]
+      ]
+    },
+    "2021-08": {
+      "granule": "MERRA2_401.tavgM_2d_slv_Nx.202108.nc4",
+      "values_K": [
+        [
+          298.876,
+          298.561
+        ],
+        [
+          295.738,
+          297.829
+        ],
+        [
+          298.999,
+          300.017
+        ]
+      ]
+    },
+    "2021-09": {
+      "granule": "MERRA2_401.tavgM_2d_slv_Nx.202109.nc4",
+      "values_K": [
+        [
+          298.934,
+          298.832
+        ],
+        [
+          296.08,
+          298.219
+        ],
+        [
+          299.331,
+          300.409
+        ]
+      ]
+    }
+  }
+}

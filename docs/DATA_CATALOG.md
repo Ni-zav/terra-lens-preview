@@ -30,7 +30,7 @@ The [published independent resource-list reproduction](https://hackathlone.com/c
 
 | Service | Data and source | Implementation |
 |---|---|---|
-| NASA Giovanni / Giovanni in the Cloud | MERRA-2, AIRS and other time series; source-specific product/version/DOI | Local monthly CSV import; original authenticated M2TMNXSLV T2M regional output and independent verification are integrated. Granule lineage and QA remain unverified. |
+| NASA Giovanni / Giovanni in the Cloud | MERRA-2, AIRS and other time series; source-specific product/version/DOI | Local monthly CSV import; original authenticated M2TMNXSLV T2M regional output, 6-cell weighted intermediates, byte-preserved NASA OPeNDAP `MERRA2_401` `.dap.nc4` subsets for the five reprocessed months, and independent SciPy verification are integrated ([handoff](NASA_QUALIFYING_SOURCE_HANDOFF.md)). |
 | GES DISC Hydrology Time Series | GLDAS and related hydrology datasets | Research only, requires retrieval and units validation |
 | NASA AppEEARS | MODIS vegetation indices / land surface temperature, with QA masks | Research only, requires authenticated subset, calendar and quality methods |
 | NASA FIRMS | MODIS and VIIRS fire detections / radiative power | Research only; detection ≠ burnt area or fire cause |
@@ -46,7 +46,7 @@ No universal "all NASA data" connector is claimed. Valid integration requires au
 4. Report point slopes separately from paired B-minus-A differences; keep calendar-year alignment, record dropped unmatched years and document the HAC approximation.
 5. For multi-point discovery, predeclare sites and time span; display failures and all trials, avoid cherry-picking positive results.
 6. Do not compare NASA POWER point data directly with Giovanni region averages as if they sampled the same spatial unit.
-7. A source listed as a *resource* is not evidence of actual data use. Mark Global Award resource compliance unresolved until authentic data from a qualifying source has been analyzed.
+7. A source listed as a *resource* is not evidence of actual data use unless authentic data from that source are analyzed. See [NASA_QUALIFYING_SOURCE_HANDOFF.md](NASA_QUALIFYING_SOURCE_HANDOFF.md) for the integrated Giovanni MERRA-2 `M2TMNXSLV.5.12.4` `T2M` analysis and independent verification; final Global Award eligibility remains NASA's decision.
 
 ## Primary references
 
