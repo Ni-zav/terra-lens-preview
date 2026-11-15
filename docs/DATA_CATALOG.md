@@ -2,6 +2,10 @@
 
 Date: 14 November 2026. **Catalog entries are not observations or proof of hackathon eligibility.**
 
+## NASA Earthdata collection discovery
+
+An experimental Giovanni-workspace search queries NASA's [Common Metadata Repository collection API](https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html) using a user-entered keyword and selected bounding box and years. It returns at most ten catalog records and links to their Earthdata pages; successful results are cached in memory for 15 minutes. Live browser requests succeeded on a hosted experiment and a GitHub runner after earlier local timeouts; the cause of those timeouts remains unverified. Catalog overlap is not proof that a specific variable or granule is available, suitable, NASA-owned or supported by Terra-Lens; records may include partner data. Variable-level discovery, generalized collection adapters, source quality validation and automatic analysis of arbitrary collections remain unimplemented.
+
 ## Live data: NASA POWER monthly point API
 
 NASA POWER is implemented and queried live. Its meteorological parameters derive from NASA MERRA-2 reanalysis and select model grid-point estimates, not whole-city measurements.
@@ -26,7 +30,7 @@ The [published independent resource-list reproduction](https://hackathlone.com/c
 
 | Service | Data and source | Implementation |
 |---|---|---|
-| NASA Giovanni / Giovanni in the Cloud | MERRA-2, AIRS and other time series; source-specific product/version/DOI | Local monthly CSV import and analysis implemented; actual authenticated dataset not yet imported |
+| NASA Giovanni / Giovanni in the Cloud | MERRA-2, AIRS and other time series; source-specific product/version/DOI | Local monthly CSV import; original authenticated M2TMNXSLV T2M regional output and independent verification are integrated. Granule lineage and QA remain unverified. |
 | GES DISC Hydrology Time Series | GLDAS and related hydrology datasets | Research only, requires retrieval and units validation |
 | NASA AppEEARS | MODIS vegetation indices / land surface temperature, with QA masks | Research only, requires authenticated subset, calendar and quality methods |
 | NASA FIRMS | MODIS and VIIRS fire detections / radiative power | Research only; detection ≠ burnt area or fire cause |
