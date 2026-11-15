@@ -1,6 +1,5 @@
-Public review preview for Terra-Lens (NOT a merged production release)
-Source repository: https://github.com/Ni-zav/terra-lens
-Source branch: fix/final-science-site-deck-readiness-20261115 (draft PR #4)
-Source commit: f93f504d509ff1bbfc51f028cb4d1e4455830ddc
-Built with: npm run build (vite build && node scripts/copy-static.mjs)
-Seven-slide PDF SHA-256: c95475748578bc0b1d6602428061488e977f573e349acfb50dcb70d362eab746
+Repository: https://github.com/Ni-zav/terra-lens
+Branch: fix/final-science-site-deck-readiness-20261115
+Source commit: 662a33a8d9b34cd691e43c80572f73dbea004784
+Demo PDF SHA-256: c95475748578bc0b1d6602428061488e977f573e349acfb50dcb70d362eab746
+Built at: 2026-11-15T14:37:41Z
