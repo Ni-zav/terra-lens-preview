@@ -1,0 +1,3 @@
+Experimental CMR catalog search; not the submission-review build.
+Source: https://github.com/Ni-zav/terra-lens/tree/experiment/nasa-cmr-discovery-20261115
+Source commit: 84c01a5d86cb1a7fb292d1e40aae9265758cb243
