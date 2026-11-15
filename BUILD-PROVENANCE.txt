@@ -1,5 +1,5 @@
 Terra-Lens static review preview
 Source repository: https://github.com/Ni-zav/terra-lens
-Source commit: 4b9a162db109a48ef960f02254cd56fe9703b090
+Source commit: bc13d39bc0a3fc3e6d4bfe532dadab1f4771d5c0
 Build: npm run build on the clean review branch
 This preview is separate from the original production site.
