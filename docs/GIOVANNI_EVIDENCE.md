@@ -16,3 +16,5 @@ This pathway supports the challenge-listed Giovanni service, whose [NASA user gu
 Any locally supplied file and user-entered metadata cannot be authenticated automatically. The checked regional case has an independent result; NASA determines official eligibility and the team submission remains the owner's responsibility.
 
 Future extensions: GLDAS hydrology needs unit- and model-aware analysis; MODIS/AppEEARS NDVI and LST require quality masks and seasonal treatment; NASA FIRMS fire detections require consistent observation coverage and should not be treated as exact burnt-area measurements.
+
+For imported Giovanni Cloud series, the app cannot establish the product’s temporal aggregation from the CSV. Annual values are day-weighted averages of the monthly values, not annual totals or annual extremes. Check the product documentation and whether averaging is meaningful before interpreting a trend. Imported provenance and quality remain user-supplied and unverified.
