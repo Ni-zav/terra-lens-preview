@@ -13,8 +13,8 @@ NASA POWER is implemented and queried live. Its meteorological parameters derive
 | Code | Parameter | Unit | Interpretation |
 |---|---|---|---|
 | T2M | 2 m temperature | °C | Monthly mean |
-| T2M_MAX | 2 m daily maximum temperature | °C | Monthly aggregate of daily maxima, not the hottest single day |
-| T2M_MIN | 2 m daily minimum temperature | °C | Monthly aggregate of daily minima, not the coldest single day |
+| T2M_MAX | 2 m monthly maximum temperature | °C | Highest modeled hourly value within each month; annual series is a day-weighted mean of monthly maxima, not the annual maximum |
+| T2M_MIN | 2 m monthly minimum temperature | °C | Lowest modeled hourly value within each month; annual series is a day-weighted mean of monthly minima, not the annual minimum |
 | T2MDEW | Dew/frost-point temperature | °C | Monthly mean |
 | RH2M | Relative humidity | % | Percentage |
 | QV2M | Specific humidity | g/kg | Distinct from RH2M |
@@ -22,7 +22,7 @@ NASA POWER is implemented and queried live. Its meteorological parameters derive
 | PS | Surface pressure | kPa | Depends on surface elevation |
 | PRECTOTCORR | Corrected precipitation rate | mm/day | Monthly average daily rate, not annual total |
 
-API metadata, units, availability, and product revisions should be checked against the original result. The nine variables above are allowlisted in the adapter but not independently proven available for every geography/date.
+[NASA POWER temporal processing](https://power.larc.nasa.gov/docs/methodology/data/processing/) distinguishes monthly extrema from averages of daily extrema. API metadata, units, availability, and product revisions should be checked against the original result. The nine variables above are allowlisted in the adapter but not independently proven available for every geography/date.
 
 ## Challenge-listed resources and candidates
 

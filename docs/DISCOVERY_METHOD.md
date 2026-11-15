@@ -25,7 +25,7 @@ These are illustrative named places spread across Indonesian regions, **not** a 
 
 ### NASA source and variable definitions
 
-One NASA POWER / MERRA-2-derived model grid-point API request per site and investigation; currently selectable: T2M (°C), T2M_MAX (°C, monthly average of daily maximum), RH2M (%), PRECTOTCORR (mm/day average daily rate, **not** annual precipitation total). All are monthly point values—not direct instrument observations at neighborhood level.
+One NASA POWER / MERRA-2-derived model grid-point API request per site and investigation; currently selectable: T2M (°C), T2M_MAX (°C, monthly maximum modeled hourly temperature; annual values average monthly maxima, not the annual maximum), RH2M (%), PRECTOTCORR (mm/day average daily rate, **not** annual precipitation total). All are monthly point values—not direct instrument observations at neighborhood level.
 
 Requested years default **2001–2024 inclusive** and may be changed within **1981–2025**, with ≥10 calendar years required. Request parameters and source URLs are exported. The app can use its existing Cloudflare proxy when present or NASA directly. Only valid NASA-supplied monthly values contribute; no synthetic or missing observations are inserted.
 
